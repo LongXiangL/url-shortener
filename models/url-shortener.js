@@ -1,14 +1,29 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-
-const urlSchema = new Schema({
-  originalUrl: {
-    type: String, // 資料型別是字串
-    required: true // 這是個必填欄位
+function generateShortUrl() {
+  const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let shortUrl = '';
+  for (let i = 0; i < 5; i++) {
+    const randomIndex = Math.floor(Math.random() * chars.length);
+    shortUrl += chars[randomIndex];
+  }
+  return shortUrl;
+}
+const shortUrlSchema = new Schema({
+  full: {
+    type: String,
+    required: true
   },
-  shortId: {
-    type: String, // 資料型別是字串
+  short: {
+    type: String,
+    required: true,
+    default: generateShortUrl
   },
+  clicks: {
+    type: Number,
+    required: true,
+    default: 0
+  }
 });
 
-module.exports = mongoose.model('Url', urlSchema);
+module.exports = mongoose.model('ShortUrl', shortUrlSchema);

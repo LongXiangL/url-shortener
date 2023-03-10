@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
-const Url = require('../url-shortener') // 載入 model
+const ShortUrl = require('../url-shortener') // 載入 model
+
+
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
@@ -15,6 +18,6 @@ db.once('open', () => {
 
 db.once('open', () => {
   console.log('mongodb connected!')
-  Url.create({ originalUrl: `https://www.google.com/` })
+  ShortUrl.create({ full: `https://www.google.com/` })
   console.log('done')
 })
