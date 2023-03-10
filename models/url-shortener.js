@@ -10,20 +10,8 @@ function generateShortUrl() {
   return shortUrl;
 }
 const shortUrlSchema = new Schema({
-  full: {
-    type: String,
-    required: true
-  },
-  short: {
-    type: String,
-    required: true,
-    default: generateShortUrl
-  },
-  clicks: {
-    type: Number,
-    required: true,
-    default: 0
-  }
-});
+  shortURL: { type: String, required: true },
+  originalURL: { type: String, required: true },
+})
 
 module.exports = mongoose.model('ShortUrl', shortUrlSchema);

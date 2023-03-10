@@ -1,10 +1,28 @@
+{{#if shortURL}}
 <div class="container mt-5">
   <div class="row">
     <div class="col-lg-6 mx-auto">
-      <form action="/shorten" method="post">
+      <div class="form-group text-center">
+        <div type="text" class="form-control" id="url" name="url">
+          <p>Success! Please use this link:</p>
+          <p id="generatedURL">{{origin}}/{{shortURL}}</p>
+        </div>
+      </div>
+      <div class="container">
+        <button type="submit" class="  btn btn-primary my-3 btn-lg mx-auto d-block" style="width: 200px;">COPY</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+{{else}}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <form action="/" method="post">
         <div class="form-group text-center">
           <label for="url">請輸入您要縮短的網址：</label>
-          <input type="text" class="form-control" id="url" name="url"
+          <input type="url" name="url" class="form-control"
             placeholder="https://www.example.com">
         </div>
         <div class="container">
@@ -15,3 +33,4 @@
     </div>
   </div>
 </div>
+{{/if}}
