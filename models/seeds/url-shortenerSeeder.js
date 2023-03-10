@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Url = require('../url-shortener') // 載入 todo model
+const Url = require('../url-shortener') // 載入 model
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
