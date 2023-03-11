@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
-const routes = require('./routes')// 引用路由器
+const routes = require('./routes')
 const PORT = process.env.PORT || 3000
 require('./config/mongoose')
 

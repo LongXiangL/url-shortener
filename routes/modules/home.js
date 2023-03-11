@@ -1,21 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const ShortUrl = require('../../models/url-shortener') // 引用 url model
+const generateShortUrl = require('../../utils/shortenURL')
 
-// 產生短網址的函式
-function generateShortUrl() {
-  const characters =
-    '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const shortUrlLength = 5;
-  let shortUrl = '';
-
-  for (let i = 0; i < shortUrlLength; i++) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    shortUrl += characters[randomIndex];
-  }
-
-  return shortUrl;
-}
 
 
 
